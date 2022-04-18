@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civil Service Network Directory</title>
+    <link href="unbranded.css" media="all" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="govuk-width-container">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h1 class="govuk-heading-l">Civil Service Network Directory
+            <span class="govuk-caption-l">One stop shop for finding CS networks and communities.</span></h1>
+            <p class="govuk-body">This site aims to share all the networks and communities in the Civil Service.</p>
+          </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-inset-text">
+            Last Updated : {{ date.strftime('%d-%m-%Y') }}
+          </div>
+        </div>
+    
+    
+    
+        
+          
+      </div>
+    
+      <div class="govuk-grid-row">
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+
+          <h2 class="govuk-heading-l">The Networks</h2>
+          <div>
+
+          {% for timestamp in networks -%}
+            <div class="govuk-grid-column-one-third">
+              <h3 class="govuk-heading-m">{{ timestamp["What is name of your network, community or group?"] }}</h3>
+              <p>{{ timestamp["What is the purpose of your network, community or group?"] }}</p>
+              <p><b>Open to:</b> {{ timestamp["Who is able to join?"] }}</P>
+            {% if  timestamp["Website"] != "" %}
+            <a href="{{ timestamp["Website"] }}" class="govuk-button govuk-button--secondary">
+              Web Link
+            </a>
+            {% endif %}
+
+            <a href="mailto:{{ timestamp["Email TNP"] }}?subject={{ timestamp["What is name of your network, community or group?"] }} - Enquiry" class="govuk-button govuk-button--secondary">
+              Email
+            </a>
+            </div>
+          {% endfor %}
+
+          </div>
+    
+        </main>
+      </div>
+    
+      <footer class="govuk-footer " role="contentinfo">
+        <div class="govuk-width-container ">
+          <div class="govuk-footer__meta">
+            <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+              <h2 class="govuk-visually-hidden">Social links</h2>
+    
+              <ul class="govuk-footer__inline-list">
+                <li class="govuk-footer__inline-list-item">
+                  Built by Samuel Hoskin. Find me on:
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="https://github.com/Samuel-Hoskin/CS-Behaviour-Page">
+                    GitHub
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="https://www.linkedin.com/in/samuel-hoskin/">
+                    LinkedIn
+                  </a>
+                </li>
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="https://twitter.com/Samuel_Hoskin">
+                    Twitter
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+</body>
+</html>
