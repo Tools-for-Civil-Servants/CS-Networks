@@ -37,6 +37,7 @@
           <div>
 
           {% for timestamp in networks -%}
+            {% if  timestamp["What is name of your network, community or group?"] != "" %}
             <div class="govuk-grid-column-one-third">
               <h3 class="govuk-heading-m">{{ timestamp["What is name of your network, community or group?"] }}</h3>
               <p>{{ timestamp["What is the purpose of your network, community or group?"] }}</p>
@@ -51,6 +52,7 @@
               Email
             </a>
             </div>
+            {% endif %}
           {% endfor %}
 
           </div>
