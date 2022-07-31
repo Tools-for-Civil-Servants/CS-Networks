@@ -48,9 +48,13 @@
             </a>
             {% endif %}
 
+            {% if  timestamp["Network Email Address"] != "" %}
             <a href="mailto:{{ timestamp["Network Email Address"] }}?subject={{ timestamp["What is name of your network, community or group?"] }} - Enquiry" class="govuk-button govuk-button--secondary">
               Email
             </a>
+            {% endif %}
+
+            
             </div>
             {% endif %}
           {% endfor %}
